@@ -1,3 +1,4 @@
+[![Latest Stable Version](https://img.shields.io/github/v/release/dwighttrujillo/concurrent)](https://github.com/dwighttrujillo/concurrent/releases)
 Concurrent brings safe, structured concurrency to PHP 8.1+ using native Fibers. It offers a simple, blocking‑style API that any PHP developer can understand – without needing to learn event‑loop patterns, promise chains, or process forking.
 
 🔍 The Problem
