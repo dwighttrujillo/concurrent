@@ -16,13 +16,14 @@ PHP 8.1 introduced Fibers – low‑level primitives for cooperative multitaskin
 ✅ The Solution
 Concurrent fills that gap. It provides a tiny scheduler that manages Fibers transparently. You write plain, sequential code – Concurrent runs it in parallel.
 
-php
-$userTask   = Concurrent::spawn(fn() => $this->db->query('SELECT * FROM users'));
-$orderTask  = Concurrent::spawn(fn() => $this->api->getOrders());
-$emailTask  = Concurrent::spawn(fn() => $this->mailer->sendBulk());
+```php
+$userTask = Concurrent::spawn(fn() => $this->db->query('SELECT * FROM users'));
+$orderTask = Concurrent::spawn(fn() => $this->api->getOrders());
+$emailTask = Concurrent::spawn(fn() => $this->mailer->sendBulk());
 
 // All three run concurrently – wait for all of them
 [$users, $orders, $emails] = Concurrent::all([$userTask, $orderTask, $emailTask]);
+```
 🚀 Key Features
 spawn(callable): Task – launches a new concurrent task (Fiber).
 
