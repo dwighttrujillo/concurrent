@@ -1,0 +1,12 @@
+{
+    "name": "dwighttrujillo/concurrent",
+    "description": "Structured concurrency for PHP 8.1+ using Fibers – no event loops, no promises.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "files": ["Concurrent.php"]
+    }
+}
