@@ -24,14 +24,16 @@ $emailTask = Concurrent::spawn(fn() => $this->mailer->sendBulk());
 // All three run concurrently – wait for all of them
 [$users, $orders, $emails] = Concurrent::all([$userTask, $orderTask, $emailTask]);
 ```
-🚀 Key Features
-spawn(callable): Task – launches a new concurrent task (Fiber).
+## Key Features
 
-await(Task): mixed – waits for a specific task and returns its result (re‑throws any exception).
-
-all(array $tasks): array – waits for all given tasks; returns results in the original order.
-
-any(array $tasks): Task – waits for the first task to complete, cancels the others.
+- **`spawn(callable): Task`** – launches a new concurrent task (Fiber)  
+- **`await(Task): mixed`** – waits for a specific task and returns its result (re‑throws exceptions)  
+- **`all(array $tasks): array`** – waits for **all** given tasks; returns results in original order  
+- **`any(array $tasks): Task`** – waits for the **first** task to complete; cancels the others  
+- **`withTimeout(float $seconds, array $tasks): array`** – fails fast if tasks don't finish in time  
+- **`cancel(Task): void`** – safely cancels a running task  
+- **`yield(): void`** – voluntarily yields control to other tasks (cooperative multitasking)  
+- **`sleep(float $seconds): void`** – non‑blocking sleep
 
 withTimeout(float $seconds, array $tasks): array – fails fast if tasks don’t finish in time.
 
